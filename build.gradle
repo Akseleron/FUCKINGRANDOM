@@ -1,49 +1,27 @@
 plugins {
-    id 'fabric-loom' version '1.6.12'
-    id 'maven-publish'
-    id 'java'
-}
-
-group = 'dev.aks'
-version = '0.1.0'
-archivesBaseName = 'world-randomizer'
-
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(21)
-    }
-    withSourcesJar()
+    id "fabric-loom" version "1.6.12"
 }
 
 repositories {
     mavenCentral()
-    maven { url = 'https://maven.fabricmc.net/' }
-    maven { url = 'https://maven.terraformersmc.com/releases' }
+    maven { url = "https://maven.fabricmc.net" }
 }
 
 dependencies {
-    // Базовая игра и маппинги — это то, чего у тебя не было на compile classpath
-    minecraft "com.mojang:minecraft:1.21"
-    mappings loom.officialMojangMappings()
+    minecraft "com.mojang:minecraft:1.21.1"
+    // было: mappings loom.officialMojangMappings()
+    mappings "net.fabricmc:yarn:1.21.1+build.**:v2"   // поставь актуальный build для 1.21.1
 
-    // Loader + Fabric API под 1.21
-    modImplementation "net.fabricmc:fabric-loader:0.15.11"
-    modImplementation "net.fabricmc.fabric-api:fabric-api:0.100.7+1.21"
-
-    // Логгер по желанию
-    implementation "org.slf4j:slf4j-api:2.0.13"
+    modImplementation "net.fabricmc:fabric-loader:0.16.**"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:0.114.0+1.21.1"
 }
 
-loom {
-    // если будешь делить client/server сорцы:
-    // splitEnvironmentSourceSets()
+java {
+    toolchain { languageVersion = JavaLanguageVersion.of(21) }
 }
 
-tasks.withType(JavaCompile).configureEach {
-    options.release = 21
-    options.encoding = 'UTF-8'
-}
-
-jar {
-    from("LICENSE") { rename { "${it}_${archivesBaseName}" } }
+// было: archivesBaseName (deprecated в Gradle 8.x, выкинут в 9)
+// лог у тебя ругался на это на строке 9. :contentReference[oaicite:1]{index=1}
+base {
+    archivesName = "fuckingrandom"
 }
