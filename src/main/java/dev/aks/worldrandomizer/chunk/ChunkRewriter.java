@@ -4,9 +4,8 @@ import dev.aks.worldrandomizer.MappingService;
 
 /**
  * Заглушка. Когда решим реально переписывать чанки:
- * - В конструкторе подпишемся на ServerChunkEvents.CHUNK_LOAD
- * - В ServerTickEvents.END_SERVER_TICK будем выносить работу по частям (тик-бюджет)
- * - Каждую позицию заменяем на mapping.mapBlockId(...)
+ * - Подписка на события загрузки чанков и тик сервера
+ * - Тик-бюджетная замена блоков на mapping.mapBlockId(...)
  */
 public final class ChunkRewriter {
     private final MappingService mapping;
