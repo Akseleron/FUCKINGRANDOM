@@ -1,5 +1,6 @@
 plugins {
-  id 'fabric-loom' version '1.7.+'
+  // Для 1.21 хватит 1.6.+. Не нужен 1.7, он уводит к 1.21.1/1.21.2.
+  id 'fabric-loom' version '1.6.+'
   id 'maven-publish'
 }
 
@@ -7,12 +8,13 @@ group = 'dev.aks'
 version = '0.1.0'
 
 repositories {
+  // Нужен для fabric-api и прочего
+  maven { url = "https://maven.fabricmc.net/" }
   mavenCentral()
 }
 
 dependencies {
   minecraft "com.mojang:minecraft:${minecraft_version}"
-  // Официальные маппинги — не зависят от номера билда Yarn
   mappings loom.officialMojangMappings()
   modImplementation "net.fabricmc:fabric-loader:${loader_version}"
   modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_api_version}"
