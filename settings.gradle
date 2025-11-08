@@ -1,19 +1,9 @@
-// Разрешаем, откуда брать плагины Gradle (в т.ч. fabric-loom)
 pluginManagement {
-  repositories {
-    gradlePluginPortal()
-    maven { url = "https://maven.fabricmc.net/" }
-    mavenCentral()
-  }
+    repositories {
+        // ВОТ ЭТОГО тебе и не хватало, отсюда Loom
+        maven { url = 'https://maven.fabricmc.net/' }
+        gradlePluginPortal()
+        mavenCentral()
+    }
 }
-
-// Репозитории для обычных зависимостей (Fabric API, т.д.)
-dependencyResolutionManagement {
-  repositoriesMode.set(RepositoriesMode.PREFER_PROJECT)
-  repositories {
-    maven { url = "https://maven.fabricmc.net/" }
-    mavenCentral()
-  }
-}
-
-rootProject.name = "fabric-world-randomizer"
+rootProject.name = "FUCKINGRANDOM"
