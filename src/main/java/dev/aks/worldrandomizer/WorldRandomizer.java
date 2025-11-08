@@ -13,7 +13,8 @@ import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
 
 /**
- * Запускает маппинг при старте сервера и подменяет лут-таблицы блоков.
+ * Инициализация: строим карту блок→блок и подменяем лут-таблицы блоков.
+ * Целевая версия Minecraft: 1.21.
  */
 public final class WorldRandomizer implements ModInitializer {
     public static final String MOD_ID = "world_randomizer";
