@@ -1,1 +1,40 @@
+plugins {
+  id 'fabric-loom' version '1.7.+'
+  id 'maven-publish'
+}
 
+group = 'dev.aks'
+version = '0.1.0'
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  minecraft "com.mojang:minecraft:${minecraft_version}"
+  // Используем Yarn, чтобы код компилился с net.minecraft.util.Identifier и Registries
+  mappings "net.fabricmc:yarn:${yarn_mappings}:v2"
+  modImplementation "net.fabricmc:fabric-loader:${loader_version}"
+  modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_api_version}"
+}
+
+tasks.withType(JavaCompile).configureEach {
+  options.release = java_version.toInteger()
+}
+
+java {
+  withSourcesJar()
+  toolchain.languageVersion = JavaLanguageVersion.of(java_version)
+}
+
+loom {
+  splitEnvironmentSourceSets()
+}
+
+publishing {
+  publications {
+    mavenJava(MavenPublication) {
+      from components.java
+    }
+  }
+}
