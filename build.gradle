@@ -12,8 +12,8 @@ repositories {
 
 dependencies {
   minecraft "com.mojang:minecraft:${minecraft_version}"
-  // Используем Yarn, чтобы код компилился с net.minecraft.util.Identifier и Registries
-  mappings "net.fabricmc:yarn:${yarn_mappings}:v2"
+  // Официальные маппинги — не зависят от номера билда Yarn
+  mappings loom.officialMojangMappings()
   modImplementation "net.fabricmc:fabric-loader:${loader_version}"
   modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_api_version}"
 }
