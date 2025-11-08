@@ -1,7 +1,9 @@
 {
-  "required": true,
+  "required": false,
+  "minVersion": "0.8",
   "package": "dev.aks.worldrandomizer.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [],
+  "client": [],
   "injectors": { "defaultRequire": 1 }
 }
