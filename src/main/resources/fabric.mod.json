@@ -1,19 +1,19 @@
 {
   "schemaVersion": 1,
   "id": "world_randomizer",
-  "version": "${version}",
+  "version": "0.1.0",
   "name": "World Randomizer",
-  "description": "Deterministic block→block randomizer seeded from world seed. Optional chunk remap.",
-  "authors": ["Akseleron"],
+  "description": "Блок-на-блок рандомизация для 1.21 без тотальной мешанины.",
+  "authors": ["Nightingale"],
   "license": "MIT",
-  "environment": "server",
+  "environment": "*",
   "entrypoints": {
     "main": ["dev.aks.worldrandomizer.WorldRandomizer"]
   },
-  "mixins": ["world_randomizer.mixins.json"],
   "depends": {
-    "fabricloader": ">=0.16.0",
-    "minecraft": ">=1.21",
-    "fabric-api": "*"
-  }
+    "fabricloader": ">=0.15.11",
+    "fabric": "*",
+    "minecraft": "1.21.x"
+  },
+  "icon": "assets/world_randomizer/icon.png"
 }
