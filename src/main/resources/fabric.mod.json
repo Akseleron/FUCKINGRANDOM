@@ -1,1 +1,19 @@
-
+{
+  "schemaVersion": 1,
+  "id": "world_randomizer",
+  "version": "${version}",
+  "name": "World Randomizer",
+  "description": "Deterministic block→block randomizer seeded from world seed. Optional chunk remap.",
+  "authors": ["Akseleron"],
+  "license": "MIT",
+  "environment": "server",
+  "entrypoints": {
+    "main": ["dev.aks.worldrandomizer.WorldRandomizer"]
+  },
+  "mixins": ["world_randomizer.mixins.json"],
+  "depends": {
+    "fabricloader": ">=0.16.0",
+    "minecraft": ">=1.21.0",
+    "fabric-api": "*"
+  }
+}
